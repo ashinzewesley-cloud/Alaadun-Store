@@ -1,697 +1,1680 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alaadun Store | Alaadun Farms</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .fade-in { animation: fadeIn 0.5s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* Default state for admin panel */
-        #admin-panel { display: none; }
-    </style>
+
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alaadun Store | Alaadun Farms</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>/*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-amber-100: oklch(96.2% 0.059 95.617);
+    --color-amber-200: oklch(92.4% 0.12 95.746);
+    --color-rose-600: oklch(58.6% 0.253 17.585);
+    --color-slate-50: oklch(98.4% 0.003 247.858);
+    --color-slate-100: oklch(96.8% 0.007 247.896);
+    --color-slate-200: oklch(92.9% 0.013 255.508);
+    --color-slate-400: oklch(70.4% 0.04 256.788);
+    --color-slate-500: oklch(55.4% 0.046 257.417);
+    --color-slate-600: oklch(44.6% 0.043 257.281);
+    --color-slate-800: oklch(27.9% 0.041 260.031);
+    --color-slate-900: oklch(20.8% 0.042 265.755);
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-md: 28rem;
+    --container-lg: 32rem;
+    --container-xl: 36rem;
+    --container-2xl: 42rem;
+    --container-4xl: 56rem;
+    --container-6xl: 72rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type='button'], [type='reset'], [type='submit']), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden='until-found'])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .fixed {
+    position: fixed;
+  }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .z-40 {
+    z-index: 40;
+  }
+  .z-50 {
+    z-index: 50;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+  .h-44 {
+    height: calc(var(--spacing) * 44);
+  }
+  .h-full {
+    height: 100%;
+  }
+  .max-h-32 {
+    max-height: calc(var(--spacing) * 32);
+  }
+  .max-h-\[90vh\] {
+    max-height: 90vh;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .w-3 {
+    width: calc(var(--spacing) * 3);
+  }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-2xl {
+    max-width: var(--container-2xl);
+  }
+  .max-w-4xl {
+    max-width: var(--container-4xl);
+  }
+  .max-w-6xl {
+    max-width: var(--container-6xl);
+  }
+  .max-w-lg {
+    max-width: var(--container-lg);
+  }
+  .max-w-md {
+    max-width: var(--container-md);
+  }
+  .max-w-xl {
+    max-width: var(--container-xl);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .list-inside {
+    list-style-position: inside;
+  }
+  .list-decimal {
+    list-style-type: decimal;
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
+  }
+  .space-y-2 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-4 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-6 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
+  .overflow-y-auto {
+    overflow-y: auto;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-3xl {
+    border-radius: var(--radius-3xl);
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-\[\#064E3B\] {
+    border-color: #064E3B;
+  }
+  .border-amber-200 {
+    border-color: var(--color-amber-200);
+  }
+  .border-slate-100 {
+    border-color: var(--color-slate-100);
+  }
+  .border-slate-200 {
+    border-color: var(--color-slate-200);
+  }
+  .border-white\/20 {
+    border-color: color-mix(in srgb, #fff 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+    }
+  }
+  .border-white\/50 {
+    border-color: color-mix(in srgb, #fff 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 50%, transparent);
+    }
+  }
+  .border-white\/60 {
+    border-color: color-mix(in srgb, #fff 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 60%, transparent);
+    }
+  }
+  .bg-\[\#064E3B\] {
+    background-color: #064E3B;
+  }
+  .bg-\[\#FBBF24\] {
+    background-color: #FBBF24;
+  }
+  .bg-amber-50 {
+    background-color: var(--color-amber-50);
+  }
+  .bg-black\/50 {
+    background-color: color-mix(in srgb, #000 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 50%, transparent);
+    }
+  }
+  .bg-black\/60 {
+    background-color: color-mix(in srgb, #000 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 60%, transparent);
+    }
+  }
+  .bg-slate-50 {
+    background-color: var(--color-slate-50);
+  }
+  .bg-slate-100 {
+    background-color: var(--color-slate-100);
+  }
+  .bg-slate-900 {
+    background-color: var(--color-slate-900);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-white\/10 {
+    background-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .object-cover {
+    object-fit: cover;
+  }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-5 {
+    padding: calc(var(--spacing) * 5);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .p-8 {
+    padding: calc(var(--spacing) * 8);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .py-16 {
+    padding-block: calc(var(--spacing) * 16);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-\[0\.2em\] {
+    --tw-tracking: 0.2em;
+    letter-spacing: 0.2em;
+  }
+  .tracking-\[0\.3em\] {
+    --tw-tracking: 0.3em;
+    letter-spacing: 0.3em;
+  }
+  .tracking-wider {
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+  }
+  .tracking-widest {
+    --tw-tracking: var(--tracking-widest);
+    letter-spacing: var(--tracking-widest);
+  }
+  .text-\[\#064E3B\] {
+    color: #064E3B;
+  }
+  .text-amber-100 {
+    color: var(--color-amber-100);
+  }
+  .text-amber-200 {
+    color: var(--color-amber-200);
+  }
+  .text-rose-600 {
+    color: var(--color-rose-600);
+  }
+  .text-slate-400 {
+    color: var(--color-slate-400);
+  }
+  .text-slate-500 {
+    color: var(--color-slate-500);
+  }
+  .text-slate-600 {
+    color: var(--color-slate-600);
+  }
+  .text-slate-800 {
+    color: var(--color-slate-800);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .text-white\/60 {
+    color: color-mix(in srgb, #fff 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 60%, transparent);
+    }
+  }
+  .text-white\/70 {
+    color: color-mix(in srgb, #fff 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 70%, transparent);
+    }
+  }
+  .text-white\/80 {
+    color: color-mix(in srgb, #fff 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 80%, transparent);
+    }
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .hover\:text-amber-200 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-amber-200);
+      }
+    }
+  }
+  .sm\:grid-cols-2 {
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .sm\:grid-cols-3 {
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .md\:flex-row {
+    @media (width >= 48rem) {
+      flex-direction: row;
+    }
+  }
+  .md\:items-center {
+    @media (width >= 48rem) {
+      align-items: center;
+    }
+  }
+  .md\:justify-between {
+    @media (width >= 48rem) {
+      justify-content: space-between;
+    }
+  }
+  .md\:p-12 {
+    @media (width >= 48rem) {
+      padding: calc(var(--spacing) * 12);
+    }
+  }
+  .md\:text-5xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
+  }
+  .lg\:grid-cols-3 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .lg\:grid-cols-\[1\.1fr_1fr\] {
+    @media (width >= 64rem) {
+      grid-template-columns: 1.1fr 1fr;
+    }
+  }
+  .lg\:grid-cols-\[1fr_1\.2fr\] {
+    @media (width >= 64rem) {
+      grid-template-columns: 1fr 1.2fr;
+    }
+  }
+  .lg\:flex-row {
+    @media (width >= 64rem) {
+      flex-direction: row;
+    }
+  }
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+    }
+  }
+}
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="h-16 w-auto flex items-center justify-center overflow-hidden">
-                    <!-- Logo Image: Defaults to logo.png, but JS will overwrite if a baked logo exists -->
-                    <img id="nav-logo" 
-                         src="logo.png" 
-                         onerror="this.style.display='none'; document.getElementById('nav-text-fallback').style.display='block';"
-                         alt="Alaadun" 
-                         class="object-contain h-full max-w-[150px]">
-                    
-                    <!-- Fallback Text (Hidden by default) -->
-                    <div id="nav-text-fallback" class="hidden">
-                        <h1 class="text-xl font-bold text-green-800">Alaadun</h1>
-                    </div>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold text-green-800 tracking-tight">Alaadun Store</h1>
-                    <p class="text-xs text-yellow-600 font-medium">Quality Organic Produce</p>
-                </div>
+<body class="bg-white text-slate-800">
+  <div id="app" class="min-h-screen">
+    <header class="bg-[#064E3B] text-white">
+      <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img id="storeLogo" src="data:image/svg+xml;base64,CiAgICAgICAgPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj4KICAgICAgICAgIDxyZWN0IHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0ZCQkYyNCIvPgogICAgICAgICAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIwLjM1ZW0iIGZvbnQtc2l6ZT0iMjgiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZmlsbD0iIzA2NEUzQiI+QTwvdGV4dD4KICAgICAgICA8L3N2Zz4=" alt="Alaadun Store" class="w-10 h-10 rounded-full object-cover border border-white/50">
+          <div>
+            <p class="text-xs uppercase tracking-widest text-amber-200">Alaadun Farms</p>
+            <h1 class="text-xl font-semibold">Alaadun Store</h1>
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#products" class="text-sm hover:text-amber-200">Products</a>
+          <a href="#about" class="text-sm hover:text-amber-200">About</a>
+          <a href="#contact" class="text-sm hover:text-amber-200">Contact</a>
+          <button id="adminAccess" class="text-white/60 hover:text-amber-200" title="Management">
+            <span class="text-lg">🔒</span>
+          </button>
+        </div>
+      </nav>
+      <section class="max-w-6xl mx-auto px-4 py-16 flex flex-col lg:flex-row items-center gap-10">
+        <div class="flex-1">
+          <p class="text-amber-200 text-sm uppercase tracking-[0.3em]">Premium agricultural marketplace</p>
+          <h2 class="text-4xl md:text-5xl font-bold mt-4">Grow With Confidence. Shop Trusted Farm Essentials.</h2>
+          <p class="mt-4 text-white/80 max-w-xl">Alaadun Store connects discerning buyers with the best of livestock, crops, equipment, and land opportunities curated by Alaadun Farms.</p>
+          <div class="mt-6 flex flex-wrap gap-4">
+            <a href="#products" class="bg-[#FBBF24] text-[#064E3B] px-6 py-3 rounded-full font-semibold">Shop Now</a>
+            <button class="border border-white/60 px-6 py-3 rounded-full">Download Catalog</button>
+          </div>
+        </div>
+        <div class="flex-1 bg-white/10 border border-white/20 rounded-3xl p-6">
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div class="bg-white/10 rounded-2xl p-4">
+              <p class="text-3xl font-bold">120+</p>
+              <p class="text-xs uppercase tracking-wider text-white/70">Trusted Partners</p>
             </div>
-            <button onclick="toggleCart()" class="relative p-2 text-green-800 hover:text-green-600 transition">
-                <i class="fa-solid fa-cart-shopping text-2xl"></i>
-                <span id="cart-count" class="absolute top-0 right-0 bg-yellow-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center transform scale-0 transition-transform duration-200">0</span>
-            </button>
+            <div class="bg-white/10 rounded-2xl p-4">
+              <p class="text-3xl font-bold">30+</p>
+              <p class="text-xs uppercase tracking-wider text-white/70">Farm Estates</p>
+            </div>
+            <div class="bg-white/10 rounded-2xl p-4">
+              <p class="text-3xl font-bold">15k</p>
+              <p class="text-xs uppercase tracking-wider text-white/70">Happy Buyers</p>
+            </div>
+            <div class="bg-white/10 rounded-2xl p-4">
+              <p class="text-3xl font-bold">98%</p>
+              <p class="text-xs uppercase tracking-wider text-white/70">Fulfillment Rate</p>
+            </div>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero -->
-    <header class="relative bg-green-800 text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center"></div>
-        <div class="container mx-auto px-4 py-16 relative z-10 text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Fresh From Our Farm</h2>
-            <p class="text-lg text-green-100 max-w-2xl mx-auto mb-8">Organic plants, seeds, livestock, and processed foods.</p>
-            <button onclick="document.getElementById('products-section').scrollIntoView({behavior: 'smooth'})" class="bg-yellow-500 hover:bg-yellow-400 text-green-900 font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">Shop Now</button>
-        </div>
+      </section>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12" id="products-section">
-        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-            <input type="text" id="search-input" oninput="filterProducts()" placeholder="Search products..." class="w-full md:w-96 pl-4 pr-4 py-2 border rounded-full shadow-sm focus:ring-2 focus:ring-green-500 outline-none">
-            <div class="flex gap-2 overflow-x-auto no-scrollbar w-full md:w-auto pb-2" id="category-filters">
-                <button onclick="setCategory('all')" class="cat-btn bg-green-700 text-white px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap shadow-sm transition">All</button>
-                <button onclick="setCategory('Livestock')" class="cat-btn bg-white text-gray-600 hover:bg-green-50 px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap shadow-sm border transition">Livestock</button>
-                <button onclick="setCategory('Crops')" class="cat-btn bg-white text-gray-600 hover:bg-green-50 px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap shadow-sm border transition">Crops</button>
-                <button onclick="setCategory('Processed')" class="cat-btn bg-white text-gray-600 hover:bg-green-50 px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap shadow-sm border transition">Processed</button>
-                <button onclick="setCategory('Equipment')" class="cat-btn bg-white text-gray-600 hover:bg-green-50 px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap shadow-sm border transition">Equipment</button>
+    <section id="about" class="max-w-6xl mx-auto px-4 py-16">
+      <div class="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
+        <div>
+          <p class="text-[#064E3B] uppercase tracking-[0.2em] text-sm">About Alaadun Farms</p>
+          <h3 class="text-3xl font-semibold mt-3">Rooted in stewardship. Led by expertise.</h3>
+          <p class="mt-4 text-slate-600">Alaadun Farms is a premium agribusiness focused on responsible food production, sustainable land investment, and high-quality farm outputs for communities and corporate buyers.</p>
+          <div class="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-6">
+            <h4 class="text-lg font-semibold text-[#064E3B]">Folake F. Ashinze — Agripreneur</h4>
+            <p class="text-sm text-slate-600 mt-2">Folake leads Alaadun Farms with over a decade of practical experience in Poultry Production, Organic Farming, and Land Investment Development. Her trusted advisory approach ensures clients secure yield-focused assets with full transparency.</p>
+            <ul class="mt-4 grid sm:grid-cols-3 gap-3 text-sm">
+              <li class="bg-white rounded-xl p-3 text-center">Poultry Production</li>
+              <li class="bg-white rounded-xl p-3 text-center">Organic Farming</li>
+              <li class="bg-white rounded-xl p-3 text-center">Land Investment</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bg-[#064E3B] text-white rounded-3xl p-8">
+          <h4 class="text-xl font-semibold">Why buyers trust Alaadun Store</h4>
+          <div class="mt-6 space-y-4">
+            <div class="flex gap-3 items-start">
+              <span class="w-3 h-3 bg-[#FBBF24] rounded-full mt-2"></span>
+              <div>
+                <p class="font-semibold">Curated Inventory</p>
+                <p class="text-sm text-white/80">Every product is vetted for quality, health, and value.</p>
+              </div>
             </div>
+            <div class="flex gap-3 items-start">
+              <span class="w-3 h-3 bg-[#FBBF24] rounded-full mt-2"></span>
+              <div>
+                <p class="font-semibold">Transparent Land Deals</p>
+                <p class="text-sm text-white/80">Secure documented land opportunities with clear ROI pathways.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start">
+              <span class="w-3 h-3 bg-[#FBBF24] rounded-full mt-2"></span>
+              <div>
+                <p class="font-semibold">Efficient Fulfillment</p>
+                <p class="text-sm text-white/80">Reliable logistics across Nigeria for livestock and crops.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            <!-- Products injected here -->
-        </div>
-        
-        <div id="empty-state" class="hidden text-center py-20">
-            <div class="text-6xl mb-4">🌾</div>
-            <p class="text-xl text-gray-500">No products found.</p>
-        </div>
-    </main>
+      </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-sm text-gray-400 mb-4">&copy; <span id="year"></span> Alaadun Farms. All rights reserved.</p>
-            <div class="flex justify-center items-center gap-2">
-                <span class="text-xs text-gray-600">Admin Access:</span>
-                <button onclick="triggerAdminAuth()" class="text-gray-600 hover:text-white transition p-1"><i class="fa-solid fa-lock text-xs"></i></button>
-            </div>
+    <section id="products" class="bg-slate-50 py-16">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <p class="text-[#064E3B] uppercase tracking-[0.2em] text-sm">Product Categories</p>
+            <h3 class="text-3xl font-semibold mt-2">Shop fresh, dependable inventory</h3>
+          </div>
+          <div class="flex flex-wrap gap-2" id="categoryFilters">
+        <button class="px-4 py-2 rounded-full text-sm border bg-[#064E3B] text-white border-[#064E3B]" data-category="All">All</button>
+        <button class="px-4 py-2 rounded-full text-sm border border-slate-200" data-category="Livestock">Livestock</button>
+        <button class="px-4 py-2 rounded-full text-sm border border-slate-200" data-category="Crops">Crops</button>
+        <button class="px-4 py-2 rounded-full text-sm border border-slate-200" data-category="Processed">Processed</button>
+        <button class="px-4 py-2 rounded-full text-sm border border-slate-200" data-category="Equipment">Equipment</button>
+        <button class="px-4 py-2 rounded-full text-sm border border-slate-200" data-category="Land">Land</button></div>
         </div>
-    </footer>
+        <div id="productGrid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
+          <div class="h-44 bg-slate-100">
+            <img src="data:image/svg+xml;base64,CiAgICAgICAgICAgICAgPHN2ZyB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnXCIgd2lkdGg9XCIzMDBcIiBoZWlnaHQ9XCIyMDBcIj4KICAgICAgICAgICAgICAgIDxyZWN0IHdpZHRoPVwiMzAwXCIgaGVpZ2h0PVwiMjAwXCIgZmlsbD1cIiNlMmU4ZjBcIi8+CiAgICAgICAgICAgICAgICA8dGV4dCB4PVwiNTAlXCIgeT1cIjUwJVwiIHRleHQtYW5jaG9yPVwibWlkZGxlXCIgZHk9XCIwLjM1ZW1cIiBmb250LWZhbWlseT1cIkFyaWFsXCIgZm9udC1zaXplPVwiMThcIiBmaWxsPVwiIzk0YTNiOFwiPlByb2R1Y3QgSW1hZ2U8L3RleHQ+CiAgICAgICAgICAgICAgPC9zdmc+" alt="Premium Broiler Chickens" class="h-full w-full object-cover">
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <p class="text-xs uppercase text-[#064E3B]">Livestock</p>
+            <h4 class="text-lg font-semibold mt-1">Premium Broiler Chickens</h4>
+            <p class="text-sm text-slate-500 mt-2 flex-1">Healthy, fast-growing broilers raised with certified feed plans.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <p class="text-lg font-semibold">₦28,000</p>
+              <button class="buyNow bg-[#FBBF24] text-[#064E3B] px-4 py-2 rounded-full text-sm font-semibold" data-id="p1">Buy Now</button>
+            </div>
+          </div>
+        </article>
+        <article class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
+          <div class="h-44 bg-slate-100">
+            <img src="data:image/svg+xml;base64,CiAgICAgICAgICAgICAgPHN2ZyB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnXCIgd2lkdGg9XCIzMDBcIiBoZWlnaHQ9XCIyMDBcIj4KICAgICAgICAgICAgICAgIDxyZWN0IHdpZHRoPVwiMzAwXCIgaGVpZ2h0PVwiMjAwXCIgZmlsbD1cIiNlMmU4ZjBcIi8+CiAgICAgICAgICAgICAgICA8dGV4dCB4PVwiNTAlXCIgeT1cIjUwJVwiIHRleHQtYW5jaG9yPVwibWlkZGxlXCIgZHk9XCIwLjM1ZW1cIiBmb250LWZhbWlseT1cIkFyaWFsXCIgZm9udC1zaXplPVwiMThcIiBmaWxsPVwiIzk0YTNiOFwiPlByb2R1Y3QgSW1hZ2U8L3RleHQ+CiAgICAgICAgICAgICAgPC9zdmc+" alt="Organic Ofada Rice" class="h-full w-full object-cover">
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <p class="text-xs uppercase text-[#064E3B]">Crops</p>
+            <h4 class="text-lg font-semibold mt-1">Organic Ofada Rice</h4>
+            <p class="text-sm text-slate-500 mt-2 flex-1">Naturally cultivated grains from trusted partner farms.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <p class="text-lg font-semibold">₦18,500</p>
+              <button class="buyNow bg-[#FBBF24] text-[#064E3B] px-4 py-2 rounded-full text-sm font-semibold" data-id="p2">Buy Now</button>
+            </div>
+          </div>
+        </article>
+        <article class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
+          <div class="h-44 bg-slate-100">
+            <img src="data:image/svg+xml;base64,CiAgICAgICAgICAgICAgPHN2ZyB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnXCIgd2lkdGg9XCIzMDBcIiBoZWlnaHQ9XCIyMDBcIj4KICAgICAgICAgICAgICAgIDxyZWN0IHdpZHRoPVwiMzAwXCIgaGVpZ2h0PVwiMjAwXCIgZmlsbD1cIiNlMmU4ZjBcIi8+CiAgICAgICAgICAgICAgICA8dGV4dCB4PVwiNTAlXCIgeT1cIjUwJVwiIHRleHQtYW5jaG9yPVwibWlkZGxlXCIgZHk9XCIwLjM1ZW1cIiBmb250LWZhbWlseT1cIkFyaWFsXCIgZm9udC1zaXplPVwiMThcIiBmaWxsPVwiIzk0YTNiOFwiPlByb2R1Y3QgSW1hZ2U8L3RleHQ+CiAgICAgICAgICAgICAgPC9zdmc+" alt="Alaadun Smoked Catfish" class="h-full w-full object-cover">
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <p class="text-xs uppercase text-[#064E3B]">Processed</p>
+            <h4 class="text-lg font-semibold mt-1">Alaadun Smoked Catfish</h4>
+            <p class="text-sm text-slate-500 mt-2 flex-1">Processed, smoky, and shelf-stable fish for retail buyers.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <p class="text-lg font-semibold">₦12,000</p>
+              <button class="buyNow bg-[#FBBF24] text-[#064E3B] px-4 py-2 rounded-full text-sm font-semibold" data-id="p3">Buy Now</button>
+            </div>
+          </div>
+        </article>
+        <article class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
+          <div class="h-44 bg-slate-100">
+            <img src="data:image/svg+xml;base64,CiAgICAgICAgICAgICAgPHN2ZyB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnXCIgd2lkdGg9XCIzMDBcIiBoZWlnaHQ9XCIyMDBcIj4KICAgICAgICAgICAgICAgIDxyZWN0IHdpZHRoPVwiMzAwXCIgaGVpZ2h0PVwiMjAwXCIgZmlsbD1cIiNlMmU4ZjBcIi8+CiAgICAgICAgICAgICAgICA8dGV4dCB4PVwiNTAlXCIgeT1cIjUwJVwiIHRleHQtYW5jaG9yPVwibWlkZGxlXCIgZHk9XCIwLjM1ZW1cIiBmb250LWZhbWlseT1cIkFyaWFsXCIgZm9udC1zaXplPVwiMThcIiBmaWxsPVwiIzk0YTNiOFwiPlByb2R1Y3QgSW1hZ2U8L3RleHQ+CiAgICAgICAgICAgICAgPC9zdmc+" alt="Solar Irrigation Kit" class="h-full w-full object-cover">
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <p class="text-xs uppercase text-[#064E3B]">Equipment</p>
+            <h4 class="text-lg font-semibold mt-1">Solar Irrigation Kit</h4>
+            <p class="text-sm text-slate-500 mt-2 flex-1">Efficient irrigation equipment for mid-scale farms.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <p class="text-lg font-semibold">₦95,000</p>
+              <button class="buyNow bg-[#FBBF24] text-[#064E3B] px-4 py-2 rounded-full text-sm font-semibold" data-id="p4">Buy Now</button>
+            </div>
+          </div>
+        </article>
+        <article class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
+          <div class="h-44 bg-slate-100">
+            <img src="data:image/svg+xml;base64,CiAgICAgICAgICAgICAgPHN2ZyB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnXCIgd2lkdGg9XCIzMDBcIiBoZWlnaHQ9XCIyMDBcIj4KICAgICAgICAgICAgICAgIDxyZWN0IHdpZHRoPVwiMzAwXCIgaGVpZ2h0PVwiMjAwXCIgZmlsbD1cIiNlMmU4ZjBcIi8+CiAgICAgICAgICAgICAgICA8dGV4dCB4PVwiNTAlXCIgeT1cIjUwJVwiIHRleHQtYW5jaG9yPVwibWlkZGxlXCIgZHk9XCIwLjM1ZW1cIiBmb250LWZhbWlseT1cIkFyaWFsXCIgZm9udC1zaXplPVwiMThcIiBmaWxsPVwiIzk0YTNiOFwiPlByb2R1Y3QgSW1hZ2U8L3RleHQ+CiAgICAgICAgICAgICAgPC9zdmc+" alt="Alaadun Farm Estate (2 acres)" class="h-full w-full object-cover">
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <p class="text-xs uppercase text-[#064E3B]">Land</p>
+            <h4 class="text-lg font-semibold mt-1">Alaadun Farm Estate (2 acres)</h4>
+            <p class="text-sm text-slate-500 mt-2 flex-1">Secure land investment with ready documentation.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <p class="text-lg font-semibold">₦2,500,000</p>
+              <button class="buyNow bg-[#FBBF24] text-[#064E3B] px-4 py-2 rounded-full text-sm font-semibold" data-id="p5">Buy Now</button>
+            </div>
+          </div>
+        </article></div>
+      </div>
+    </section>
 
-    <!-- Cart Sidebar -->
-    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full md:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50 flex flex-col">
-        <div class="p-5 border-b flex justify-between items-center bg-green-50">
-            <h2 class="text-xl font-bold text-green-900 flex items-center gap-2"><i class="fa-solid fa-basket-shopping"></i> Your Basket</h2>
-            <button onclick="toggleCart()" class="text-gray-500 hover:text-red-500 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+    <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
+      <div class="bg-[#064E3B] text-white rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-2xl font-semibold">Need a bespoke order or land advisory?</h3>
+          <p class="text-white/80 mt-2">Speak with the Alaadun Farms team for tailored solutions.</p>
         </div>
-        <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
-        <div class="p-5 bg-gray-50 border-t shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
-            <div class="mb-4">
-                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Delivery Option</label>
-                <div class="flex gap-2">
-                    <button onclick="setDelivery('standard')" id="btn-delivery-standard" class="flex-1 py-3 border-2 border-green-600 bg-green-50 rounded-lg text-center transition-all">
-                        <div class="font-bold text-green-800 text-sm">Standard</div>
-                        <div class="text-xs text-green-700 font-mono" id="price-standard">₦1,500</div>
-                    </button>
-                    <button onclick="setDelivery('express')" id="btn-delivery-express" class="flex-1 py-3 border-2 border-gray-200 bg-white rounded-lg text-center transition-all hover:border-green-300">
-                        <div class="font-bold text-gray-700 text-sm">Express</div>
-                        <div class="text-xs text-gray-500 font-mono" id="price-express">₦3,500</div>
-                    </button>
-                </div>
-            </div>
-            <div class="flex justify-between items-end mb-4 pt-2 border-t">
-                <span class="text-gray-600 font-medium">Total to Pay</span>
-                <span id="cart-total" class="text-3xl font-bold text-green-800 tracking-tight">₦0.00</span>
-            </div>
-            <button onclick="openCheckoutModal()" class="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-4 rounded-lg shadow-lg transition transform active:scale-95 flex justify-center items-center gap-2">
-                Checkout <i class="fa-solid fa-arrow-right"></i>
-            </button>
+        <button id="contactBtn" class="bg-[#FBBF24] text-[#064E3B] px-6 py-3 rounded-full font-semibold">Chat on WhatsApp</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="orderModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center px-4 z-50">
+    <div class="bg-white rounded-2xl p-6 w-full max-w-lg">
+      <div class="flex justify-between items-center">
+        <h4 class="text-xl font-semibold">Complete your order</h4>
+        <button id="closeOrder" class="text-slate-400">✕</button>
+      </div>
+      <div class="mt-4">
+        <p class="text-sm text-slate-500">Product</p>
+        <p id="orderProductName" class="text-lg font-semibold"></p>
+      </div>
+      <div class="mt-4 grid gap-4">
+        <label class="text-sm">
+          Quantity
+          <input id="orderQuantity" type="number" min="1" value="1" class="mt-2 w-full border rounded-lg px-3 py-2">
+        </label>
+        <label class="text-sm">
+          Delivery Urgency
+          <select id="orderDelivery" class="mt-2 w-full border rounded-lg px-3 py-2">
+            <option value="standard">Standard Delivery (+₦2,000)</option>
+            <option value="express">Express Delivery (+₦5,000)</option>
+          </select>
+        </label>
+        <label class="text-sm">
+          Customer Email
+          <input id="orderEmail" type="email" placeholder="you@example.com" class="mt-2 w-full border rounded-lg px-3 py-2">
+        </label>
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="text-sm text-slate-500">Grand Total</p>
+          <p id="orderTotal" class="text-2xl font-semibold">₦0</p>
         </div>
+      </div>
+      <button id="orderWhatsapp" class="mt-6 w-full bg-[#064E3B] text-white py-3 rounded-full font-semibold">Order on WhatsApp</button>
     </div>
+  </div>
 
-    <!-- Checkout Modal -->
-    <div id="checkout-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full relative animate-in fade-in zoom-in duration-300">
-            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <h3 class="text-2xl font-bold text-green-900 mb-6">Confirm Order</h3>
-            <form onsubmit="processOrder(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs text-gray-500 font-bold mb-1">Your Name</label>
-                    <input type="text" id="cust-name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 outline-none">
-                </div>
-                <div>
-                    <label class="block text-xs text-gray-500 font-bold mb-1">Delivery Address</label>
-                    <textarea id="cust-address" required rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 outline-none"></textarea>
-                </div>
-                
-                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                    <h5 class="text-blue-800 font-bold text-xs uppercase mb-1">Payment Instructions</h5>
-                    <p id="payment-instruction-text" class="text-sm text-blue-900 whitespace-pre-line font-mono"></p>
-                </div>
-                
-                <button type="submit" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3 rounded-lg shadow-md flex justify-center items-center gap-2 transition-colors">
-                    <i class="fa-brands fa-whatsapp text-xl"></i> Send Order via WhatsApp
-                </button>
-            </form>
-        </div>
+  <div id="emailPopup" class="fixed inset-0 bg-black/50 items-center justify-center px-4 z-40 hidden">
+    <div class="bg-white rounded-2xl p-6 w-full max-w-md">
+      <h4 class="text-xl font-semibold">Join the Harvest Circle</h4>
+      <p class="text-sm text-slate-500 mt-2">Get first access to fresh produce drops and land investment updates.</p>
+      <input id="leadEmail" type="email" placeholder="Email address" class="mt-4 w-full border rounded-lg px-3 py-2">
+      <div class="mt-4 flex gap-3">
+        <button id="saveLead" class="flex-1 bg-[#064E3B] text-white py-2 rounded-full">Subscribe</button>
+        <button id="closeLead" class="flex-1 border border-slate-200 py-2 rounded-full">Not now</button>
+      </div>
     </div>
+  </div>
 
-    <!-- Email Modal -->
-    <div id="email-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative fade-in text-center">
-            <button onclick="closeEmailModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600 text-2xl">
-                <i class="fa-solid fa-envelope-open-text"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">Join Alaadun Family</h3>
-            <p class="text-gray-500 text-sm mb-6">Subscribe to get updates on fresh harvests and price changes.</p>
-            <form onsubmit="handleEmailSubmit(event)" class="space-y-3">
-                <input type="email" id="visitor-email" placeholder="Enter your email address" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
-                <button type="submit" class="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-3 rounded-lg transition">Subscribe Now</button>
-            </form>
-            <button onclick="closeEmailModal()" class="mt-4 text-xs text-gray-400 hover:text-gray-600 underline">No thanks, maybe later</button>
-        </div>
+  <div id="driveSetupModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center px-4 z-50">
+    <div class="bg-white rounded-3xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center">
+        <h3 class="text-xl font-semibold">Google Drive Lead Capture Setup</h3>
+        <button id="closeDriveSetup" class="text-slate-400">✕</button>
+      </div>
+      <p class="text-sm text-slate-600 mt-3">Follow these steps to save leads in Drive: you will deploy a Google Apps Script as a web app and paste its URL into the Lead Capture field (folder links alone cannot accept uploads).</p>
+      <div class="mt-4 bg-slate-900 text-amber-100 rounded-2xl p-4 text-xs overflow-x-auto">
+        <pre id="driveScript"></pre>
+      </div>
+      <ol class="mt-4 text-sm text-slate-600 space-y-2 list-decimal list-inside">
+        <li>Open <strong>script.google.com</strong> and create a new project.</li>
+        <li>Replace the default code with the script above and update the folder ID if needed.</li>
+        <li>Click <strong>Deploy → New deployment → Web app</strong>.</li>
+        <li>Set <strong>Execute as</strong> to <strong>Me</strong> and <strong>Who has access</strong> to <strong>Anyone</strong>.</li>
+        <li>Click <strong>Deploy</strong>, authorize the project, then copy the <strong>Web app URL</strong>.</li>
+        <li>Paste the Web app URL into <strong>Lead Capture Web App URL</strong> and click <strong>Save Settings</strong>.</li>
+      </ol>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <button id="copyDriveScript" class="flex-1 bg-[#064E3B] text-white py-2 rounded-full">Copy Script</button>
+        <button id="openAppsScript" class="flex-1 border border-slate-200 py-2 rounded-full">Open Apps Script</button>
+      </div>
     </div>
+  </div>
 
-    <!-- ADMIN PANEL -->
-    <!-- Important: style="display: none" ensures it stays hidden initially -->
-    <div id="admin-panel" class="fixed inset-0 bg-gray-100 z-[100] overflow-y-auto" style="display: none;">
-        <div class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 shadow-md z-10">
-            <div class="flex items-center gap-3">
-                <div class="bg-green-600 text-xs px-2 py-1 rounded font-bold">ADMIN MODE</div>
-                <h2 class="font-bold text-lg hidden sm:block">Store Manager</h2>
-            </div>
-            <button onclick="closeAdmin()" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded text-sm font-bold transition flex items-center gap-2">
-                <i class="fa-solid fa-power-off"></i> Exit
-            </button>
+      <div id="adminModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center px-4 z-50">
+    <div class="bg-white rounded-3xl p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center">
+        <h3 class="text-2xl font-semibold">Management Hub</h3>
+        <button id="closeAdmin" class="text-slate-400">✕</button>
+      </div>
+      <div class="mt-6 grid lg:grid-cols-[1fr_1.2fr] gap-6">
+        <div class="space-y-6">
+          <div class="bg-slate-50 rounded-2xl p-4">
+            <h4 class="font-semibold">Settings</h4>
+            <label class="text-sm block mt-3">Store Logo
+              <input id="logoUpload" type="file" accept="image/*" class="mt-2 w-full">
+            </label>
+            <label class="text-sm block mt-3">WhatsApp Number
+              <input id="whatsappInput" type="text" class="mt-2 w-full border rounded-lg px-3 py-2">
+            </label>
+            <label class="text-sm block mt-3">Drive Folder Link (for reference)
+              <input id="driveFolderInput" type="url" placeholder="https://drive.google.com/drive/folders/..." class="mt-2 w-full border rounded-lg px-3 py-2">
+            </label>
+            <label class="text-sm block mt-3">Lead Capture Web App URL (Apps Script)
+              <input id="leadLinkInput" type="url" placeholder="https://script.google.com/macros/s/.../exec" class="mt-2 w-full border rounded-lg px-3 py-2">
+            </label>
+            <p class="text-xs text-slate-500 mt-2">Drive folder links alone cannot receive uploads. Use the Apps Script web app URL to write emails into the Drive folder.</p>
+            <button id="driveSetupBtn" class="mt-3 w-full border border-amber-200 text-[#064E3B] py-2 rounded-full">Drive Setup Helper</button>
+            <div id="driveStatus" class="mt-2 text-xs text-slate-500">Lead capture endpoint configured.</div>
+            <button id="saveSettings" class="mt-4 w-full bg-[#064E3B] text-white py-2 rounded-full">Save Settings</button>
+            <button id="exportLeads" class="mt-3 w-full border border-slate-200 py-2 rounded-full">Export Leads CSV</button>
+            <div id="leadSummary" class="mt-3 text-xs text-slate-500">Total Leads: 2</div>
+            <div id="leadList" class="mt-3 space-y-2 max-h-32 overflow-y-auto">
+          <div class="bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs">
+            <p class="font-semibold">ashinzew@gmail.com</p>
+            <p class="text-slate-400">16/03/2026, 11:50:56</p>
+          </div>
+          <div class="bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs">
+            <p class="font-semibold">ashinzewesley@gmail.com</p>
+            <p class="text-slate-400">16/03/2026, 11:38:54</p>
+          </div></div>
+          </div>
+          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+            <h4 class="font-semibold">Publishing Tool</h4>
+            <p class="text-sm text-slate-600 mt-2">Generate a production-ready index.html with current inventory and settings.</p>
+            <button id="publishSite" class="mt-4 w-full bg-[#FBBF24] text-[#064E3B] py-2 rounded-full font-semibold">Generate Production Website</button>
+          </div>
         </div>
-        
-        <div class="container mx-auto px-4 py-8 max-w-4xl">
-            <!-- Publish Section -->
-            <div class="bg-white p-6 rounded-xl border-2 border-green-500 mb-8 shadow-lg relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">STEP 1: UPDATE</div>
-                <div class="flex flex-col md:flex-row items-center gap-6">
-                    <div class="bg-green-100 p-4 rounded-full text-green-700 text-3xl">
-                        <i class="fa-solid fa-cloud-arrow-up"></i>
-                    </div>
-                    <div class="flex-1">
-                        <h4 class="font-bold text-green-900 text-xl mb-1">Publish Your Changes</h4>
-                        <p class="text-sm text-gray-600 mb-3">
-                            When you finish adding products or uploading your logo, click this button.
-                            It will download a new <strong>index.html</strong> file with everything "baked" inside.
-                        </p>
-                        <button onclick="downloadUpdatedWebsite()" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg shadow-md flex items-center gap-2 transition transform hover:scale-105">
-                            <i class="fa-solid fa-download"></i> Download Updated Website
-                        </button>
-                    </div>
-                </div>
+        <div class="bg-slate-50 rounded-2xl p-4">
+          <h4 class="font-semibold">Inventory</h4>
+          <form id="productForm" class="mt-4 grid gap-3">
+            <input type="hidden" id="productId">
+            <label class="text-sm">Product Image
+              <input id="productImage" type="file" accept="image/*" class="mt-2 w-full">
+            </label>
+            <label class="text-sm">Name
+              <input id="productName" type="text" class="mt-2 w-full border rounded-lg px-3 py-2">
+            </label>
+            <label class="text-sm">Description
+              <textarea id="productDescription" rows="3" class="mt-2 w-full border rounded-lg px-3 py-2"></textarea>
+            </label>
+            <label class="text-sm">Price (₦)
+              <input id="productPrice" type="number" class="mt-2 w-full border rounded-lg px-3 py-2">
+            </label>
+            <label class="text-sm">Category
+              <select id="productCategory" class="mt-2 w-full border rounded-lg px-3 py-2">
+                <option value="Livestock">Livestock</option>
+                <option value="Crops">Crops</option>
+                <option value="Processed">Processed</option>
+                <option value="Equipment">Equipment</option>
+                <option value="Land">Land</option>
+              </select>
+            </label>
+            <button type="submit" class="bg-[#064E3B] text-white py-2 rounded-full">Save Product</button>
+          </form>
+          <div id="inventoryList" class="mt-6 space-y-4">
+        <div class="bg-white rounded-xl p-4 border border-slate-200">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-semibold">Premium Broiler Chickens</p>
+              <p class="text-xs text-slate-500">Livestock • ₦28,000</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Settings Column -->
-                <div class="md:col-span-1 space-y-6">
-                    <!-- LOGO UPLOAD SECTION -->
-                    <div class="bg-white rounded-lg shadow p-5 border-l-4 border-yellow-500">
-                        <h3 class="font-bold text-gray-800 mb-4 border-b pb-2">Store Logo</h3>
-                        <div>
-                            <label class="text-xs font-bold text-gray-500 uppercase mb-2 block">Upload Logo File</label>
-                            <input type="file" id="admin-logo-file" accept="image/*" class="w-full border p-1 rounded text-xs bg-gray-50 mb-2">
-                            <p class="text-[10px] text-gray-400 mb-2">This will "bake" the logo into the file so you don't need 'logo.png' anymore.</p>
-                            <button onclick="saveLogo()" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 rounded text-sm font-bold">Save Logo</button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow p-5">
-                        <h3 class="font-bold text-gray-800 mb-4 border-b pb-2">Store Settings</h3>
-                        <div class="space-y-3">
-                            <div>
-                                <label class="text-xs font-bold text-gray-500 uppercase">WhatsApp Number</label>
-                                <input type="text" id="admin-whatsapp" class="w-full border p-2 rounded text-sm bg-gray-50 focus:bg-white transition" placeholder="e.g. 23480...">
-                                <p class="text-[10px] text-gray-400">No '+' symbol. Just country code.</p>
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-gray-500 uppercase">Payment Info</label>
-                                <textarea id="admin-payment-info" class="w-full border p-2 rounded text-sm bg-gray-50 focus:bg-white transition" rows="3" placeholder="Bank Name, Acct No..."></textarea>
-                            </div>
-                            <button onclick="saveSettings()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded text-sm font-bold">Save Settings</button>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow p-5">
-                        <h3 class="font-bold text-gray-800 mb-4 border-b pb-2">Delivery Fees</h3>
-                        <div class="space-y-3">
-                            <div>
-                                <label class="text-xs font-bold text-gray-500 uppercase">Standard (₦)</label>
-                                <input type="number" id="admin-delivery-std" class="w-full border p-2 rounded text-sm bg-gray-50">
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-gray-500 uppercase">Express (₦)</label>
-                                <input type="number" id="admin-delivery-exp" class="w-full border p-2 rounded text-sm bg-gray-50">
-                            </div>
-                            <button onclick="saveSettings()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded text-sm font-bold">Update Fees</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Products Column -->
-                <div class="md:col-span-2">
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="font-bold text-gray-800 text-lg">Product Catalogue</h3>
-                            <button onclick="toggleProductForm()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm font-bold shadow flex items-center gap-2">
-                                <i class="fa-solid fa-plus"></i> Add Product
-                            </button>
-                        </div>
-                        
-                        <!-- Add/Edit Form -->
-                        <div id="product-form-container" class="hidden bg-gray-50 p-5 rounded-lg border-2 border-gray-200 mb-6 animate-in fade-in zoom-in duration-200">
-                            <div class="flex justify-between items-center mb-4">
-                                <h4 class="font-bold text-gray-800" id="form-title">Add New Product</h4>
-                                <button onclick="toggleProductForm()" class="text-gray-400 hover:text-red-500"><i class="fa-solid fa-xmark"></i></button>
-                            </div>
-                            
-                            <input type="hidden" id="edit-id">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                                <div class="col-span-2 sm:col-span-1">
-                                    <label class="text-xs font-bold text-gray-500 uppercase">Name</label>
-                                    <input type="text" id="prod-name" class="w-full border p-2 rounded bg-white">
-                                </div>
-                                <div class="col-span-2 sm:col-span-1">
-                                    <label class="text-xs font-bold text-gray-500 uppercase">Category</label>
-                                    <select id="prod-cat" class="w-full border p-2 rounded bg-white">
-                                        <option value="Livestock">Livestock</option>
-                                        <option value="Crops">Crops</option>
-                                        <option value="Processed">Processed</option>
-                                        <option value="Equipment">Equipment</option>
-                                    </select>
-                                </div>
-                                <div class="col-span-2 sm:col-span-1">
-                                    <label class="text-xs font-bold text-gray-500 uppercase">Price (₦)</label>
-                                    <input type="number" id="prod-price" class="w-full border p-2 rounded bg-white">
-                                </div>
-                                <div class="col-span-2 sm:col-span-1">
-                                    <label class="text-xs font-bold text-gray-500 uppercase">Image</label>
-                                    <input type="file" id="prod-img-file" accept="image/*" class="w-full border p-1 rounded bg-white text-xs">
-                                    <input type="hidden" id="prod-img-base64">
-                                </div>
-                                <div class="col-span-2">
-                                    <label class="text-xs font-bold text-gray-500 uppercase">Description</label>
-                                    <textarea id="prod-desc" rows="2" class="w-full border p-2 rounded bg-white"></textarea>
-                                </div>
-                            </div>
-                            <div class="flex gap-3">
-                                <button onclick="saveProduct()" class="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded font-bold transition">Save Product</button>
-                                <button onclick="toggleProductForm()" class="px-4 bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 rounded font-bold transition">Cancel</button>
-                            </div>
-                        </div>
-
-                        <!-- Product List -->
-                        <div id="admin-product-list" class="space-y-2 max-h-[500px] overflow-y-auto pr-2">
-                            <!-- Items injected via JS -->
-                        </div>
-                    </div>
-                </div>
+            <div class="flex gap-2">
+              <button class="editProduct text-sm text-[#064E3B]" data-id="p1">Edit</button>
+              <button class="deleteProduct text-sm text-rose-600" data-id="p1">Delete</button>
             </div>
-            
-            <br><br><br>
+          </div>
         </div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-semibold">Organic Ofada Rice</p>
+              <p class="text-xs text-slate-500">Crops • ₦18,500</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="editProduct text-sm text-[#064E3B]" data-id="p2">Edit</button>
+              <button class="deleteProduct text-sm text-rose-600" data-id="p2">Delete</button>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-semibold">Alaadun Smoked Catfish</p>
+              <p class="text-xs text-slate-500">Processed • ₦12,000</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="editProduct text-sm text-[#064E3B]" data-id="p3">Edit</button>
+              <button class="deleteProduct text-sm text-rose-600" data-id="p3">Delete</button>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-semibold">Solar Irrigation Kit</p>
+              <p class="text-xs text-slate-500">Equipment • ₦95,000</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="editProduct text-sm text-[#064E3B]" data-id="p4">Edit</button>
+              <button class="deleteProduct text-sm text-rose-600" data-id="p4">Delete</button>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-slate-200">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-semibold">Alaadun Farm Estate (2 acres)</p>
+              <p class="text-xs text-slate-500">Land • ₦2,500,000</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="editProduct text-sm text-[#064E3B]" data-id="p5">Edit</button>
+              <button class="deleteProduct text-sm text-rose-600" data-id="p5">Delete</button>
+            </div>
+          </div>
+        </div></div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- JAVASCRIPT ENGINE -->
-    <script>
-        // ==========================================
-        //  ALAADUN STORE - CORE LOGIC
-        // ==========================================
+  <script>
+    const appState = {
+  "isLoggedIn": false,
+  "settings": {
+    "whatsapp": "2348035527469",
+    "logo": "",
+    "leadLink": "https://script.google.com/macros/s/AKfycbzI8sXmRQZEEEuP7w7x8LVzrj7lzqNKBPSV-m6FQpbC4x_SgyPOgV8N8v-xwhllO3px/exec",
+    "driveFolder": "https://drive.google.com/drive/folders/16-0E-AnAdb81K83CmRm5kCX4E6hzedIy"
+  },
+  "products": [
+    {
+      "id": "p1",
+      "name": "Premium Broiler Chickens",
+      "description": "Healthy, fast-growing broilers raised with certified feed plans.",
+      "price": 28000,
+      "category": "Livestock",
+      "image": ""
+    },
+    {
+      "id": "p2",
+      "name": "Organic Ofada Rice",
+      "description": "Naturally cultivated grains from trusted partner farms.",
+      "price": 18500,
+      "category": "Crops",
+      "image": ""
+    },
+    {
+      "id": "p3",
+      "name": "Alaadun Smoked Catfish",
+      "description": "Processed, smoky, and shelf-stable fish for retail buyers.",
+      "price": 12000,
+      "category": "Processed",
+      "image": ""
+    },
+    {
+      "id": "p4",
+      "name": "Solar Irrigation Kit",
+      "description": "Efficient irrigation equipment for mid-scale farms.",
+      "price": 95000,
+      "category": "Equipment",
+      "image": ""
+    },
+    {
+      "id": "p5",
+      "name": "Alaadun Farm Estate (2 acres)",
+      "description": "Secure land investment with ready documentation.",
+      "price": 2500000,
+      "category": "Land",
+      "image": ""
+    }
+  ],
+  "leads": [
+    {
+      "email": "ashinzew@gmail.com",
+      "date": "2026-03-16T10:50:56.127Z"
+    },
+    {
+      "email": "ashinzewesley@gmail.com",
+      "date": "2026-03-16T10:38:54.337Z"
+    }
+  ]
+};
 
-        // --- 1. PERMANENT DATA STORAGE ---
-        /* DATA_START */
-        const BAKED_DATA = null;
-        /* DATA_END */
+    const categories = ['All', 'Livestock', 'Crops', 'Processed', 'Equipment', 'Land'];
+    let activeCategory = 'All';
+    let selectedProduct = null;
 
-        // --- 2. DEFAULTS ---
-        const DEFAULT_PRODUCTS = [
-            { id: 1, name: "Live Broiler Chicken", category: "Livestock", price: 5500, image: "https://images.unsplash.com/photo-1548550023-2bdb3c5c6698?q=80&w=1470&auto=format&fit=crop", desc: "Mature broiler chicken. Healthy and organically fed." },
-            { id: 2, name: "Catfish (1kg)", category: "Livestock", price: 2800, image: "https://images.unsplash.com/photo-1516684669134-de6d7c47743b?q=80&w=1287&auto=format&fit=crop", desc: "Fresh live or smoked catfish. Price per kg." }
-        ];
+    const selectors = {
+      productGrid: document.getElementById('productGrid'),
+      categoryFilters: document.getElementById('categoryFilters'),
+      orderModal: document.getElementById('orderModal'),
+      adminModal: document.getElementById('adminModal'),
+      emailPopup: document.getElementById('emailPopup'),
+      driveSetupModal: document.getElementById('driveSetupModal'),
+      inventoryList: document.getElementById('inventoryList'),
+      storeLogo: document.getElementById('storeLogo'),
+      leadSummary: document.getElementById('leadSummary'),
+      leadList: document.getElementById('leadList'),
+      driveStatus: document.getElementById('driveStatus')
+    };
 
-        const DEFAULT_SETTINGS = {
-            whatsapp: "2348123456789", 
-            paymentInfo: "Bank: GTBank\nAcct: 0123456789\nName: Alaadun Farms",
-            deliveryStd: 1500,
-            deliveryExp: 3500,
-            logo: null // For baked logo
-        };
+    const formatCurrency = (value) => `₦${Number(value).toLocaleString('en-NG')}`;
+    const normalizeWhatsAppNumber = (number) => {
+      const digits = String(number || '').replace(/\D/g, '');
+      if (!digits) return '2348035527469';
+      if (digits.startsWith('0')) return `234${digits.slice(1)}`;
+      if (digits.startsWith('234')) return digits;
+      return digits;
+    };
+    const buildWhatsAppUrl = (message) => {
+      const phone = normalizeWhatsAppNumber(appState.settings.whatsapp);
+      return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    };
+    const openWhatsApp = (message) => {
+      const url = buildWhatsAppUrl(message);
+      const tab = window.open(url, '_blank', 'noopener');
+      if (!tab) {
+        window.location.href = url;
+      }
+    };
 
-        // --- 3. INITIALIZATION ---
-        let products, settings;
+    const loadState = () => {
+      const saved = localStorage.getItem('alaadunStoreState');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        appState.isLoggedIn = parsed.isLoggedIn || false;
+        appState.settings = { ...appState.settings, ...parsed.settings };
+        appState.products = parsed.products || appState.products;
+        appState.leads = parsed.leads || appState.leads;
+        if (/drive\.google\.com\/drive\/folders\//.test(appState.settings.leadLink || '') && !appState.settings.driveFolder) {
+          appState.settings.driveFolder = appState.settings.leadLink;
+          appState.settings.leadLink = '';
+        }
+      }
+    };
 
-        // Load Products
-        if (BAKED_DATA && BAKED_DATA.products) {
-            products = BAKED_DATA.products;
-            localStorage.setItem('alaadun_products', JSON.stringify(products));
+    const persistState = () => {
+      localStorage.setItem('alaadunStoreState', JSON.stringify({
+        isLoggedIn: appState.isLoggedIn,
+        settings: appState.settings,
+        products: appState.products,
+        leads: appState.leads
+      }));
+    };
+
+    const renderLogo = () => {
+      selectors.storeLogo.src = appState.settings.logo || 'data:image/svg+xml;base64,' + btoa(`\n        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">\n          <rect width="80" height="80" fill="#FBBF24"/>\n          <text x="50%" y="50%" text-anchor="middle" dy="0.35em" font-size="28" font-family="Arial" fill="#064E3B">A</text>\n        </svg>`);
+    };
+
+    const renderCategories = () => {
+      selectors.categoryFilters.innerHTML = categories.map(category => `\n        <button class="px-4 py-2 rounded-full text-sm border ${category === activeCategory ? 'bg-[#064E3B] text-white border-[#064E3B]' : 'border-slate-200'}" data-category="${category}">${category}</button>`).join('');
+    };
+
+    const renderProducts = () => {
+      const filtered = activeCategory === 'All'
+        ? appState.products
+        : appState.products.filter(product => product.category === activeCategory);
+
+      selectors.productGrid.innerHTML = filtered.map(product => `\n        <article class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">\n          <div class="h-44 bg-slate-100">\n            <img src="${product.image || 'data:image/svg+xml;base64,' + btoa(`\n              <svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"300\\" height=\\"200\\">\n                <rect width=\\"300\\" height=\\"200\\" fill=\\"#e2e8f0\\"/>\n                <text x=\\"50%\\" y=\\"50%\\" text-anchor=\\"middle\\" dy=\\"0.35em\\" font-family=\\"Arial\\" font-size=\\"18\\" fill=\\"#94a3b8\\">Product Image</text>\n              </svg>`) }" alt="${product.name}" class="h-full w-full object-cover" />\n          </div>\n          <div class="p-5 flex-1 flex flex-col">\n            <p class="text-xs uppercase text-[#064E3B]">${product.category}</p>\n            <h4 class="text-lg font-semibold mt-1">${product.name}</h4>\n            <p class="text-sm text-slate-500 mt-2 flex-1">${product.description}</p>\n            <div class="mt-4 flex items-center justify-between">\n              <p class="text-lg font-semibold">${formatCurrency(product.price)}</p>\n              <button class="buyNow bg-[#FBBF24] text-[#064E3B] px-4 py-2 rounded-full text-sm font-semibold" data-id="${product.id}">Buy Now</button>\n            </div>\n          </div>\n        </article>`).join('');
+    };
+
+    const renderInventory = () => {
+      selectors.inventoryList.innerHTML = appState.products.map(product => `\n        <div class="bg-white rounded-xl p-4 border border-slate-200">\n          <div class="flex items-start justify-between gap-4">\n            <div>\n              <p class="font-semibold">${product.name}</p>\n              <p class="text-xs text-slate-500">${product.category} • ${formatCurrency(product.price)}</p>\n            </div>\n            <div class="flex gap-2">\n              <button class="editProduct text-sm text-[#064E3B]" data-id="${product.id}">Edit</button>\n              <button class="deleteProduct text-sm text-rose-600" data-id="${product.id}">Delete</button>\n            </div>\n          </div>\n        </div>`).join('');
+    };
+
+    const renderLeads = () => {
+      const leads = appState.leads || [];
+      if (selectors.leadSummary) {
+        selectors.leadSummary.textContent = leads.length
+          ? `Total Leads: ${leads.length}`
+          : 'No leads captured yet.';
+      }
+      if (selectors.leadList) {
+        selectors.leadList.innerHTML = leads.slice(0, 8).map(lead => `\n          <div class="bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs">\n            <p class="font-semibold">${lead.email}</p>\n            <p class="text-slate-400">${new Date(lead.date).toLocaleString()}</p>\n          </div>`).join('');
+      }
+    };
+
+    const storeLead = (email) => {
+      const cleanEmail = String(email || '').trim();
+      if (!cleanEmail) return;
+      appState.leads = appState.leads || [];
+      appState.leads.unshift({ email: cleanEmail, date: new Date().toISOString() });
+      persistState();
+      renderLeads();
+    };
+
+    const buildLeadsCsv = () => {
+      const leads = appState.leads || [];
+      const rows = [['Email', 'Date'], ...leads.map(lead => [lead.email, lead.date])];
+      return rows.map(row => row.map(value => `"${String(value).replace(/"/g, '""')}"`).join(',')).join('\n');
+    };
+
+    const downloadLeadsCsv = (filename = 'alaadun-store-leads.csv') => {
+      const csv = buildLeadsCsv();
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    };
+
+    const isDriveFolderLink = (link) => /drive\.google\.com\/drive\/folders\//.test(link || '');
+    const getDriveFolderId = (link) => {
+      const match = String(link || '').match(/drive\.google\.com\/drive\/folders\/([a-zA-Z0-9_-]+)/);
+      return match ? match[1] : '';
+    };
+    const getDriveScriptTemplate = (folderId) => `// Alaadun Store Lead Capture - Google Apps Script\nconst FOLDER_ID = '${folderId || 'PASTE_FOLDER_ID_HERE'}';\nconst FILE_NAME = 'alaadun-store-leads';\nconst SHEET_NAME = 'Leads';\n\nfunction doPost(e) {\n  const payload = e && e.postData && e.postData.contents ? JSON.parse(e.postData.contents) : {};\n  const email = payload.email || '';\n  if (!email) {\n    return ContentService.createTextOutput('Missing email');\n  }\n  const folder = DriveApp.getFolderById(FOLDER_ID);\n  let sheet;\n  const files = folder.getFilesByName(FILE_NAME);\n  if (files.hasNext()) {\n    const file = files.next();\n    const ss = SpreadsheetApp.open(file);\n    sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);\n  } else {\n    const ss = SpreadsheetApp.create(FILE_NAME);\n    const file = DriveApp.getFileById(ss.getId());\n    folder.addFile(file);\n    DriveApp.getRootFolder().removeFile(file);\n    sheet = ss.getSheetByName('Sheet1');\n    sheet.setName(SHEET_NAME);\n    sheet.appendRow(['Email', 'Date', 'Source']);\n  }\n  sheet.appendRow([email, new Date(), payload.source || 'Alaadun Store']);\n  return ContentService.createTextOutput('ok');\n}\n\nfunction doGet() {\n  return ContentService.createTextOutput('ok');\n}`;
+    const renderDriveStatus = () => {
+      if (!selectors.driveStatus) return;
+      const endpoint = (appState.settings.leadLink || '').trim();
+      const folder = (appState.settings.driveFolder || '').trim();
+      if (!endpoint) {
+        selectors.driveStatus.textContent = folder
+          ? 'Drive folder set. Add Apps Script web app URL to save leads.'
+          : 'No lead capture link set yet.';
+        return;
+      }
+      if (isDriveFolderLink(endpoint)) {
+        selectors.driveStatus.textContent = 'Drive folder detected. Paste the Apps Script web app URL instead of the folder link.';
+        return;
+      }
+      selectors.driveStatus.textContent = 'Lead capture endpoint configured.';
+    };
+    const openDriveSetup = () => {
+      const folderId = getDriveFolderId(appState.settings.driveFolder || appState.settings.leadLink || '');
+      const script = getDriveScriptTemplate(folderId);
+      const scriptEl = document.getElementById('driveScript');
+      if (scriptEl) {
+        scriptEl.textContent = script;
+      }
+      selectors.driveSetupModal.classList.remove('hidden');
+      selectors.driveSetupModal.classList.add('flex');
+    };
+
+    const sendLeadToLink = (email) => {
+      const endpoint = (appState.settings.leadLink || '').trim();
+      const folder = (appState.settings.driveFolder || '').trim();
+      if (!endpoint || isDriveFolderLink(endpoint)) {
+        if (!sessionStorage.getItem('alaadunDriveAlert')) {
+          sessionStorage.setItem('alaadunDriveAlert', 'true');
+          alert('To save emails into Drive, paste the Apps Script web app URL in the Lead Capture field. Folder links cannot receive uploads.');
+        }
+        if (folder || isDriveFolderLink(endpoint)) {
+          openDriveSetup();
+        }
+        return;
+      }
+      if (endpoint.includes('{email}')) {
+        const url = endpoint.replace('{email}', encodeURIComponent(email));
+        fetch(url, { mode: 'no-cors' }).catch(() => {});
+        return;
+      }
+      fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'Alaadun Store', date: new Date().toISOString() })
+      }).catch(() => {});
+    };
+
+    const exportLeads = () => {
+      downloadLeadsCsv();
+    };
+
+    const openOrderModal = (product) => {
+      selectedProduct = product;
+      document.getElementById('orderProductName').textContent = product.name;
+      document.getElementById('orderQuantity').value = 1;
+      document.getElementById('orderDelivery').value = 'standard';
+      updateOrderTotal();
+      selectors.orderModal.classList.remove('hidden');
+      selectors.orderModal.classList.add('flex');
+    };
+
+    const updateOrderTotal = () => {
+      if (!selectedProduct) return;
+      const quantity = Math.max(1, Number(document.getElementById('orderQuantity').value) || 1);
+      const delivery = document.getElementById('orderDelivery').value;
+      const deliveryFee = delivery === 'express' ? 5000 : 2000;
+      const total = quantity * Number(selectedProduct.price) + deliveryFee;
+      document.getElementById('orderTotal').textContent = formatCurrency(total);
+    };
+
+    const closeModal = (modal) => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    };
+
+    const handleAdminAccess = () => {
+      const passkey = prompt('Enter Management Passkey');
+      if (passkey === '135799') {
+        appState.isLoggedIn = true;
+        persistState();
+        selectors.adminModal.classList.remove('hidden');
+        selectors.adminModal.classList.add('flex');
+        document.getElementById('whatsappInput').value = appState.settings.whatsapp;
+        document.getElementById('driveFolderInput').value = appState.settings.driveFolder || '';
+        document.getElementById('leadLinkInput').value = appState.settings.leadLink || '';
+        renderLeads();
+        renderDriveStatus();
+      } else if (passkey) {
+        alert('Incorrect passkey.');
+      }
+    };
+
+    const handleImageUpload = (file) => new Promise((resolve, reject) => {
+      if (!file) return resolve('');
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject('Failed to load image');
+      reader.readAsDataURL(file);
+    });
+
+    const resetProductForm = () => {
+      document.getElementById('productId').value = '';
+      document.getElementById('productName').value = '';
+      document.getElementById('productDescription').value = '';
+      document.getElementById('productPrice').value = '';
+      document.getElementById('productCategory').value = 'Livestock';
+      document.getElementById('productImage').value = '';
+    };
+
+    const populateForm = (product) => {
+      document.getElementById('productId').value = product.id;
+      document.getElementById('productName').value = product.name;
+      document.getElementById('productDescription').value = product.description;
+      document.getElementById('productPrice').value = product.price;
+      document.getElementById('productCategory').value = product.category;
+    };
+
+    const publishWebsite = () => {
+      const exportState = {
+        isLoggedIn: false,
+        settings: appState.settings,
+        products: appState.products,
+        leads: appState.leads
+      };
+      const html = document.documentElement.outerHTML;
+      const injected = html.replace(/const appState = [\s\S]*?;\n/, `const appState = ${JSON.stringify(exportState, null, 2)};\n`)
+        .replace(/id=\"adminModal\" class=\"[^\"]*\"/, 'id="adminModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center px-4 z-50"');
+      const blob = new Blob([injected], { type: 'text/html' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'index.html';
+      link.click();
+      URL.revokeObjectURL(link.href);
+    };
+
+    const init = () => {
+      loadState();
+      renderLogo();
+      renderCategories();
+      renderProducts();
+      renderInventory();
+      renderLeads();
+      renderDriveStatus();
+
+      selectors.categoryFilters.addEventListener('click', (event) => {
+        const target = event.target.closest('button');
+        if (!target) return;
+        activeCategory = target.dataset.category;
+        renderCategories();
+        renderProducts();
+      });
+
+      selectors.productGrid.addEventListener('click', (event) => {
+        const button = event.target.closest('.buyNow');
+        if (!button) return;
+        const product = appState.products.find(item => item.id === button.dataset.id);
+        if (product) openOrderModal(product);
+      });
+
+      document.getElementById('orderQuantity').addEventListener('input', updateOrderTotal);
+      document.getElementById('orderDelivery').addEventListener('change', updateOrderTotal);
+      document.getElementById('closeOrder').addEventListener('click', () => closeModal(selectors.orderModal));
+
+      document.getElementById('orderWhatsapp').addEventListener('click', () => {
+        if (!selectedProduct) return;
+        const quantity = Math.max(1, Number(document.getElementById('orderQuantity').value) || 1);
+        const delivery = document.getElementById('orderDelivery').value;
+        const deliveryText = delivery === 'express' ? 'Express Delivery' : 'Standard Delivery';
+        const deliveryFee = delivery === 'express' ? 5000 : 2000;
+        const total = quantity * Number(selectedProduct.price) + deliveryFee;
+        const email = document.getElementById('orderEmail').value || 'Not provided';
+        const message = `Hello Alaadun Store,\nProduct: ${selectedProduct.name}\nQuantity: ${quantity}\nDelivery: ${deliveryText}\nCustomer Email: ${email}\nGrand Total: ${formatCurrency(total)}`;
+        openWhatsApp(message);
+      });
+
+      document.getElementById('adminAccess').addEventListener('click', handleAdminAccess);
+      document.getElementById('closeAdmin').addEventListener('click', () => closeModal(selectors.adminModal));
+      document.getElementById('driveSetupBtn').addEventListener('click', openDriveSetup);
+      document.getElementById('closeDriveSetup').addEventListener('click', () => closeModal(selectors.driveSetupModal));
+      document.getElementById('openAppsScript').addEventListener('click', () => window.open('https://script.google.com/home', '_blank', 'noopener'));
+      document.getElementById('copyDriveScript').addEventListener('click', async () => {
+        const scriptEl = document.getElementById('driveScript');
+        if (scriptEl && navigator.clipboard) {
+          try {
+            await navigator.clipboard.writeText(scriptEl.textContent);
+            alert('Script copied to clipboard.');
+          } catch (error) {
+            alert('Copy failed.');
+          }
+        }
+      });
+      document.getElementById('saveSettings').addEventListener('click', async () => {
+        const logoFile = document.getElementById('logoUpload').files[0];
+        if (logoFile) {
+          appState.settings.logo = await handleImageUpload(logoFile);
+        }
+        appState.settings.whatsapp = document.getElementById('whatsappInput').value || appState.settings.whatsapp;
+        const driveFolderValue = (document.getElementById('driveFolderInput').value || '').trim();
+        const leadLinkValue = (document.getElementById('leadLinkInput').value || '').trim();
+        if (isDriveFolderLink(leadLinkValue) && !driveFolderValue) {
+          appState.settings.driveFolder = leadLinkValue;
+          appState.settings.leadLink = '';
         } else {
-            products = JSON.parse(localStorage.getItem('alaadun_products')) || DEFAULT_PRODUCTS;
+          appState.settings.driveFolder = driveFolderValue;
+          appState.settings.leadLink = leadLinkValue;
         }
+        renderLogo();
+        renderDriveStatus();
+        persistState();
+        alert('Settings saved.');
+      });
 
-        // Load Settings
-        if (BAKED_DATA && BAKED_DATA.settings) {
-            settings = BAKED_DATA.settings;
-            localStorage.setItem('alaadun_settings', JSON.stringify(settings));
-        } else {
-            settings = JSON.parse(localStorage.getItem('alaadun_settings')) || DEFAULT_SETTINGS;
+      document.getElementById('productForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const id = document.getElementById('productId').value || `p${Date.now()}`;
+        const existing = appState.products.find(product => product.id === id);
+        let image = existing?.image || '';
+        const imageFile = document.getElementById('productImage').files[0];
+        if (imageFile) {
+          image = await handleImageUpload(imageFile);
         }
-
-        let cart = [];
-        let deliveryType = 'standard';
-
-        // --- 4. STARTUP LOGIC ---
-        window.onload = function() {
-            // FORCE ADMIN PANEL CLOSED ON LOAD
-            const adminPanel = document.getElementById('admin-panel');
-            if(adminPanel) adminPanel.style.display = 'none';
-
-            // APPLY LOGO IF BAKED
-            if(settings.logo) {
-                const logoImg = document.getElementById('nav-logo');
-                if(logoImg) {
-                    logoImg.src = settings.logo; // Overwrite 'logo.png' with Base64
-                    logoImg.style.display = 'block';
-                    document.getElementById('nav-text-fallback').style.display = 'none';
-                }
-            }
-
-            renderProducts(products);
-            document.getElementById('year').textContent = new Date().getFullYear();
-            updateSettingsUI();
-
-            if(!localStorage.getItem('alaadun_email_captured')) {
-                setTimeout(() => {
-                    document.getElementById('email-modal').classList.remove('hidden');
-                }, 4000);
-            }
+        const productData = {
+          id,
+          name: document.getElementById('productName').value,
+          description: document.getElementById('productDescription').value,
+          price: Number(document.getElementById('productPrice').value),
+          category: document.getElementById('productCategory').value,
+          image
         };
-
-        // --- 5. STORE FUNCTIONS (Unchanged from previous stable version) ---
-        function renderProducts(list) {
-            const grid = document.getElementById('product-grid');
-            const empty = document.getElementById('empty-state');
-            grid.innerHTML = '';
-            
-            if(!list || list.length === 0) { 
-                grid.classList.add('hidden'); 
-                if(empty) empty.classList.remove('hidden'); 
-                return; 
-            }
-            grid.classList.remove('hidden'); 
-            if(empty) empty.classList.add('hidden');
-
-            list.forEach(p => {
-                const card = document.createElement('div');
-                card.className = "bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden group border border-gray-100 flex flex-col";
-                card.innerHTML = `
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="${p.image}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <span class="absolute top-2 right-2 bg-white/90 px-2 py-1 text-xs font-bold rounded text-green-800 uppercase shadow-sm">${p.category}</span>
-                    </div>
-                    <div class="p-5 flex-1 flex flex-col">
-                        <h3 class="font-bold text-lg text-gray-800 mb-1 font-serif">${p.name}</h3>
-                        <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">${p.desc}</p>
-                        <div class="flex items-center justify-between mt-auto">
-                            <span class="text-xl font-bold text-green-700">₦${p.price.toLocaleString()}</span>
-                            <button onclick="addToCart(${p.id})" class="bg-yellow-500 hover:bg-yellow-400 text-white h-10 w-10 rounded-full flex items-center justify-center shadow transition active:scale-95"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>`;
-                grid.appendChild(card);
-            });
+        if (existing) {
+          Object.assign(existing, productData);
+        } else {
+          appState.products.push(productData);
         }
+        persistState();
+        renderProducts();
+        renderInventory();
+        resetProductForm();
+      });
 
-        function filterProducts() {
-            const term = document.getElementById('search-input').value.toLowerCase();
-            renderProducts(products.filter(p => p.name.toLowerCase().includes(term)));
+      selectors.inventoryList.addEventListener('click', (event) => {
+        const editBtn = event.target.closest('.editProduct');
+        const deleteBtn = event.target.closest('.deleteProduct');
+        if (editBtn) {
+          const product = appState.products.find(item => item.id === editBtn.dataset.id);
+          if (product) populateForm(product);
         }
-
-        function setCategory(cat) {
-            document.querySelectorAll('.cat-btn').forEach(btn => {
-                if(btn.innerText === cat || (cat === 'all' && btn.innerText === 'All')) {
-                    btn.classList.remove('bg-white', 'text-gray-600'); btn.classList.add('bg-green-700', 'text-white');
-                } else {
-                    btn.classList.add('bg-white', 'text-gray-600'); btn.classList.remove('bg-green-700', 'text-white');
-                }
-            });
-            renderProducts(cat === 'all' ? products : products.filter(p => p.category === cat));
+        if (deleteBtn) {
+          appState.products = appState.products.filter(item => item.id !== deleteBtn.dataset.id);
+          persistState();
+          renderProducts();
+          renderInventory();
         }
+      });
 
-        function toggleCart() { 
-            const sb = document.getElementById('cart-sidebar');
-            sb.classList.toggle('translate-x-full');
+      document.getElementById('publishSite').addEventListener('click', publishWebsite);
+      document.getElementById('exportLeads').addEventListener('click', exportLeads);
+
+      document.getElementById('contactBtn').addEventListener('click', () => {
+        const message = 'Hello Alaadun Farms';
+        openWhatsApp(message);
+      });
+
+      document.getElementById('saveLead').addEventListener('click', () => {
+        const emailInput = document.getElementById('leadEmail');
+        const email = emailInput.value.trim();
+        if (!email || !email.includes('@')) {
+          alert('Please enter a valid email.');
+          return;
         }
+        storeLead(email);
+        sendLeadToLink(email);
+        emailInput.value = '';
+        closeModal(selectors.emailPopup);
+      });
+      document.getElementById('closeLead').addEventListener('click', () => closeModal(selectors.emailPopup));
 
-        function addToCart(id) {
-            const p = products.find(x => x.id === id);
-            const exist = cart.find(x => x.id === id);
-            if(exist) exist.qty++; else cart.push({...p, qty: 1});
-            updateCartUI();
-            document.getElementById('cart-sidebar').classList.remove('translate-x-full');
-        }
+      setTimeout(() => {
+        selectors.emailPopup.classList.remove('hidden');
+        selectors.emailPopup.classList.add('flex');
+      }, 3000);
+    };
 
-        function updateCartUI() {
-            const cont = document.getElementById('cart-items');
-            const count = document.getElementById('cart-count');
-            const total = cart.reduce((s, i) => s + i.qty, 0);
-            
-            count.innerText = total;
-            count.classList.toggle('scale-0', total === 0);
-            cont.innerHTML = '';
-            
-            let sub = 0;
-            cart.forEach(i => {
-                sub += i.price * i.qty;
-                cont.innerHTML += `
-                    <div class="flex gap-3 items-center bg-white p-2 rounded shadow-sm border mb-2">
-                        <img src="${i.image}" class="w-12 h-12 object-cover rounded bg-gray-100">
-                        <div class="flex-1"><h4 class="text-sm font-bold">${i.name}</h4><p class="text-xs text-gray-500">₦${i.price.toLocaleString()}</p></div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="changeQty(${i.id},-1)" class="w-6 h-6 bg-gray-100 rounded hover:bg-gray-200">-</button>
-                            <span class="text-sm w-4 text-center font-medium">${i.qty}</span>
-                            <button onclick="changeQty(${i.id},1)" class="w-6 h-6 bg-gray-100 rounded hover:bg-gray-200">+</button>
-                        </div>
-                    </div>`;
-            });
-            
-            const del = deliveryType === 'standard' ? settings.deliveryStd : settings.deliveryExp;
-            document.getElementById('cart-total').innerText = "₦" + (sub + parseFloat(del)).toLocaleString();
-        }
+    init();
+  </script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;cfb6543e268d4ceb92c8170675caa481&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
 
-        function changeQty(id, d) {
-            const i = cart.find(x => x.id === id);
-            if(i) { i.qty += d; if(i.qty <= 0) cart = cart.filter(x => x.id !== id); updateCartUI(); }
-        }
 
-        function setDelivery(t) {
-            deliveryType = t;
-            const s = document.getElementById('btn-delivery-standard');
-            const e = document.getElementById('btn-delivery-express');
-            if(t==='standard'){ 
-                s.classList.add('border-green-600','bg-green-50'); e.classList.remove('border-green-600','bg-green-50'); 
-            } else { 
-                e.classList.add('border-green-600','bg-green-50'); s.classList.remove('border-green-600','bg-green-50'); 
-            }
-            updateCartUI();
-        }
-
-        function openCheckoutModal() { 
-            if(!cart.length) return alert("Cart empty"); 
-            document.getElementById('checkout-modal').classList.remove('hidden');
-            document.getElementById('payment-instruction-text').innerText = settings.paymentInfo;
-        }
-        function closeCheckoutModal() { document.getElementById('checkout-modal').classList.add('hidden'); }
-        function closeEmailModal() { document.getElementById('email-modal').classList.add('hidden'); localStorage.setItem('alaadun_email_captured', 'true'); }
-        function handleEmailSubmit(e) { e.preventDefault(); closeEmailModal(); }
-
-        function processOrder(e) {
-            e.preventDefault();
-            const name = document.getElementById('cust-name').value;
-            const addr = document.getElementById('cust-address').value;
-            
-            let msg = `*NEW ORDER - Alaadun Store*\n---------------------\nName: ${name}\nAddress: ${addr}\n---------------------\n`;
-            let sub = 0;
-            cart.forEach(i => { sub += i.price*i.qty; msg += `• ${i.name} (x${i.qty}): ₦${(i.price*i.qty).toLocaleString()}\n`; });
-            const del = deliveryType === 'standard' ? settings.deliveryStd : settings.deliveryExp;
-            const delName = deliveryType === 'standard' ? 'Standard' : 'Express';
-            const total = sub + parseFloat(del);
-            
-            msg += `---------------------\nDelivery: ${delName} (₦${parseInt(del).toLocaleString()})\n*TOTAL: ₦${total.toLocaleString()}*`;
-            
-            window.open(`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
-            cart = []; updateCartUI(); closeCheckoutModal(); toggleCart();
-        }
-
-        // --- 6. ADMIN PANEL FUNCTIONS ---
-        function triggerAdminAuth() {
-            const pass = prompt("Enter Admin Passkey:");
-            if(pass === "135799") {
-                const panel = document.getElementById('admin-panel');
-                panel.style.display = 'block';
-                
-                loadAdminProducts();
-                document.getElementById('admin-whatsapp').value = settings.whatsapp;
-                document.getElementById('admin-payment-info').value = settings.paymentInfo;
-                document.getElementById('admin-delivery-std').value = settings.deliveryStd;
-                document.getElementById('admin-delivery-exp').value = settings.deliveryExp;
-            } else {
-                alert("Incorrect Passkey");
-            }
-        }
-        function closeAdmin() { 
-            document.getElementById('admin-panel').style.display = 'none';
-        }
-        
-        function loadAdminProducts() {
-            const list = document.getElementById('admin-product-list');
-            list.innerHTML = '';
-            products.forEach(p => {
-                const row = document.createElement('div');
-                row.className = "flex justify-between items-center bg-gray-50 p-3 rounded mb-2 border hover:bg-gray-100 transition";
-                row.innerHTML = `
-                    <div class="flex items-center gap-3">
-                        <img src="${p.image}" class="w-10 h-10 rounded object-cover border">
-                        <div>
-                            <div class="font-bold text-sm text-gray-800">${p.name}</div>
-                            <div class="text-xs text-gray-500">₦${p.price.toLocaleString()}</div>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button onclick="editProduct(${p.id})" class="text-blue-600 hover:text-blue-800 p-2 bg-blue-50 rounded"><i class="fa-solid fa-pen"></i></button>
-                        <button onclick="deleteProduct(${p.id})" class="text-red-600 hover:text-red-800 p-2 bg-red-50 rounded"><i class="fa-solid fa-trash"></i></button>
-                    </div>`;
-                list.appendChild(row);
-            });
-        }
-
-        function toggleProductForm() { 
-            const f = document.getElementById('product-form-container'); 
-            f.classList.toggle('hidden'); 
-            if(!f.classList.contains('hidden')) {
-                document.getElementById('prod-img-file').value = "";
-                if(!document.getElementById('edit-id').value) document.getElementById('prod-img-base64').value = "";
-            }
-        }
-
-        document.getElementById('prod-img-file').addEventListener('change', function(e) {
-            const f = e.target.files[0];
-            if(f) {
-                const r = new FileReader();
-                r.onload = function(ev) { document.getElementById('prod-img-base64').value = ev.target.result; };
-                r.readAsDataURL(f);
-            }
-        });
-
-        function saveProduct() {
-            const id = document.getElementById('edit-id').value;
-            const name = document.getElementById('prod-name').value;
-            const price = parseFloat(document.getElementById('prod-price').value);
-            const cat = document.getElementById('prod-cat').value;
-            const desc = document.getElementById('prod-desc').value;
-            let img = document.getElementById('prod-img-base64').value;
-            
-            if(!name || !price) return alert("Name and Price required");
-            
-            if(id) {
-                const p = products.find(x => x.id == id);
-                if(p) {
-                    p.name = name; p.price = price; p.category = cat; p.desc = desc;
-                    if(img) p.image = img;
-                }
-            } else {
-                products.push({ id: Date.now(), name, price, category: cat, desc, image: img || "https://placehold.co/400x300?text=No+Image" });
-            }
-            localStorage.setItem('alaadun_products', JSON.stringify(products));
-            
-            document.getElementById('edit-id').value = "";
-            document.getElementById('product-form-container').classList.add('hidden');
-            document.getElementById('prod-name').value = "";
-            document.getElementById('prod-price').value = "";
-            document.getElementById('prod-desc').value = "";
-            
-            renderProducts(products); loadAdminProducts();
-        }
-
-        function editProduct(id) {
-            const p = products.find(x => x.id == id);
-            if(p) {
-                document.getElementById('edit-id').value = p.id;
-                document.getElementById('prod-name').value = p.name;
-                document.getElementById('prod-price').value = p.price;
-                document.getElementById('prod-cat').value = p.category;
-                document.getElementById('prod-desc').value = p.desc;
-                document.getElementById('product-form-container').classList.remove('hidden');
-            }
-        }
-
-        function deleteProduct(id) {
-            if(confirm("Delete product?")) {
-                products = products.filter(x => x.id !== id);
-                localStorage.setItem('alaadun_products', JSON.stringify(products));
-                renderProducts(products); loadAdminProducts();
-            }
-        }
-
-        // --- NEW: LOGO UPLOAD LOGIC ---
-        function saveLogo() {
-            const file = document.getElementById('admin-logo-file').files[0];
-            if(!file) return alert("Please select a file first.");
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                settings.logo = e.target.result; // Base64 String
-                localStorage.setItem('alaadun_settings', JSON.stringify(settings));
-                alert("Logo Saved! It will be permanent after you Download Updated Website.");
-                
-                // Update live
-                const logoImg = document.getElementById('nav-logo');
-                logoImg.src = settings.logo;
-                logoImg.style.display = 'block';
-                document.getElementById('nav-text-fallback').style.display = 'none';
-            };
-            reader.readAsDataURL(file);
-        }
-
-        function saveSettings() {
-            settings.whatsapp = document.getElementById('admin-whatsapp').value;
-            settings.paymentInfo = document.getElementById('admin-payment-info').value;
-            settings.deliveryStd = document.getElementById('admin-delivery-std').value;
-            settings.deliveryExp = document.getElementById('admin-delivery-exp').value;
-            localStorage.setItem('alaadun_settings', JSON.stringify(settings));
-            alert("Settings Saved!");
-            updateSettingsUI();
-        }
-
-        function updateSettingsUI() {
-            document.getElementById('price-standard').innerText = "₦" + parseInt(settings.deliveryStd).toLocaleString();
-            document.getElementById('price-express').innerText = "₦" + parseInt(settings.deliveryExp).toLocaleString();
-        }
-
-        // --- 7. PUBLISH FEATURE (SANITIZED DOWNLOAD) ---
-        function downloadUpdatedWebsite() {
-            if(!confirm("Ready to publish?\\n\\nThis will download a new 'index.html' file with your LOGO and PRODUCTS baked inside.")) return;
-            
-            const data = { products: products, settings: settings };
-            let html = document.documentElement.outerHTML;
-            if(!html.toLowerCase().startsWith("<!doctype")) html = "<!DOCTYPE html>\n" + html;
-
-            // SANITIZER: Force 'admin-panel' to be display:none in the file
-            html = html.replace(
-                /<div id="admin-panel"[^>]*>/, 
-                '<div id="admin-panel" class="fixed inset-0 bg-gray-100 z-[100] overflow-y-auto" style="display: none;">'
-            );
-
-            // Inject Data
-            const regex = /const BAKED_DATA = (null|{.*?});/s;
-            if(html.match(regex)) {
-                html = html.replace(regex, `const BAKED_DATA = ${JSON.stringify(data)};`);
-                
-                // Create Download
-                const blob = new Blob([html], {type: 'text/html'});
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url; a.download = 'index.html';
-                document.body.appendChild(a); a.click(); document.body.removeChild(a);
-            } else alert("Error: Data placeholder not found.");
-        }
-    </script>
-</body>
-</html>
+</body></html>
